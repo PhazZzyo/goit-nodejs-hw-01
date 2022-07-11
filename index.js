@@ -7,7 +7,7 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
   switch (action) {
     case "list":
       const allcontacts = await contacts.listContacts();
-      console.log(allcontacts);
+      console.table(allcontacts);
       break;
 
     case "get":
@@ -31,7 +31,6 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
 };
 
 const arr = hideBin(process.argv);
-console.log(arr);
 const { argv } = yargs(arr);
-console.log(argv);
+
 invokeAction(argv);
